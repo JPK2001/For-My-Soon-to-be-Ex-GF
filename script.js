@@ -1,56 +1,82 @@
 const bgMusic = document.getElementById("bgMusic");
 const enableMusicBtn = document.getElementById("enableMusic");
 const toggleSongBtn = document.getElementById("toggleSong");
-const loveBtn = document.getElementById("loveBtn");
+const volumeControl = document.getElementById("volumeControl");
 
 let currentSong = 1;
 
-// Show hidden message
-loveBtn.addEventListener("click", () => {
-    document.getElementById("hiddenMessage").style.display = "block";
-});
-
-// Function to start song at 15 seconds
-function startSongAt15Seconds() {
-    bgMusic.currentTime = 15;
-    bgMusic.play();
+/* Section Navigation */
+function showSection(id) {
+    document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
 }
 
-// Try autoplay
-window.addEventListener("load", () => {
-    const playPromise = bgMusic.play();
+/* Reveal Message */
+function revealMessage() {
+    document.getElementById("hiddenMessage").style.display = "block";
+}
 
-    if (playPromise !== undefined) {
-        playPromise
-            .then(() => {
-                bgMusic.currentTime = 15;
-                enableMusicBtn.style.display = "none";
-            })
-            .catch(() => {
-                enableMusicBtn.style.display = "inline-block";
-            });
-    }
-});
+/* Fade In Audio */
+function fadeInAudio() {
+    bgMusic.volume = 0;
+    let fade = setInterval(() => {
+        if (bgMusic.volume < 1) {
+            bgMusic.volume += MUSIC_CONFIG.fadeSpeed;
+        } else {
+            clearInterval(fade);
+        }
+    }, 100);
+}
 
-// Manual enable
+/* Start Music at 15s */
+function startMusic() {
+    bgMusic.currentTime = MUSIC_CONFIG.startTime;
+    bgMusic.play();
+    fadeInAudio();
+}
+
+/* Enable Music */
 enableMusicBtn.addEventListener("click", () => {
-    startSongAt15Seconds();
-    enableMusicBtn.style.display = "none";
+    startMusic();
 });
 
-// Switch songs and skip 15 seconds
+/* Switch Songs */
 toggleSongBtn.addEventListener("click", () => {
+    bgMusic.pause();
+
     if (currentSong === 1) {
-        bgMusic.src = "candy-clip-officiel.mp3";
+        bgMusic.src = MUSIC_CONFIG.secondSong;
         currentSong = 2;
     } else {
-        bgMusic.src = "die-with-a-smile-official-music-video.mp3";
+        bgMusic.src = MUSIC_CONFIG.firstSong;
         currentSong = 1;
     }
 
     bgMusic.addEventListener("loadedmetadata", function handler() {
-        bgMusic.currentTime = 15;
-        bgMusic.play();
+        startMusic();
         bgMusic.removeEventListener("loadedmetadata", handler);
     });
 });
+
+/* Volume Control */
+volumeControl.addEventListener("input", () => {
+    bgMusic.volume = volumeControl.value;
+});
+
+/* Floating Hearts Generator */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.querySelector(".hearts-container").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 500);
