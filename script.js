@@ -1,12 +1,19 @@
 const bgMusic = document.getElementById("bgMusic");
 const enableMusicBtn = document.getElementById("enableMusic");
 const toggleSongBtn = document.getElementById("toggleSong");
+const loveBtn = document.getElementById("loveBtn");
 
 let currentSong = 1;
 
-// Show hidden love message
-function showMessage() {
+// Show hidden message
+loveBtn.addEventListener("click", () => {
     document.getElementById("hiddenMessage").style.display = "block";
+});
+
+// Function to start song at 15 seconds
+function startSongAt15Seconds() {
+    bgMusic.currentTime = 15;
+    bgMusic.play();
 }
 
 // Try autoplay
@@ -16,6 +23,7 @@ window.addEventListener("load", () => {
     if (playPromise !== undefined) {
         playPromise
             .then(() => {
+                bgMusic.currentTime = 15;
                 enableMusicBtn.style.display = "none";
             })
             .catch(() => {
@@ -24,13 +32,13 @@ window.addEventListener("load", () => {
     }
 });
 
-// Enable music manually
+// Manual enable
 enableMusicBtn.addEventListener("click", () => {
-    bgMusic.play();
+    startSongAt15Seconds();
     enableMusicBtn.style.display = "none";
 });
 
-// Switch between songs
+// Switch songs and skip 15 seconds
 toggleSongBtn.addEventListener("click", () => {
     if (currentSong === 1) {
         bgMusic.src = "candy-clip-officiel.mp3";
@@ -39,5 +47,10 @@ toggleSongBtn.addEventListener("click", () => {
         bgMusic.src = "die-with-a-smile-official-music-video.mp3";
         currentSong = 1;
     }
-    bgMusic.play();
+
+    bgMusic.addEventListener("loadedmetadata", function handler() {
+        bgMusic.currentTime = 15;
+        bgMusic.play();
+        bgMusic.removeEventListener("loadedmetadata", handler);
+    });
 });
