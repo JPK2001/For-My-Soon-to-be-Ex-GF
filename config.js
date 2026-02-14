@@ -3,86 +3,70 @@
 // ============================================
 
 const CONFIG = {
-    // Your Valentine's name that will appear in the title
-    // Example: "Jade", "Sarah", "Mike"
     valentineName: "DEBORAH... Cara Mia",
 
-    // The title that appears in the browser tab
-    // You can use emojis! 💝 💖 💗 💓 💞 💕
     pageTitle: "Will You Be My Valentineee? 💝",
 
-    // Floating emojis that appear in the background
-    // Find more emojis at: https://emojipedia.org
     floatingEmojis: {
-        hearts: ['❤️', '💖', '💝', '💗', '💓'],  // Heart emojis
-        bears: ['🧸', '🐻']                       // Cute bear emojis
+        hearts: ['❤️', '💖', '💝', '💗', '💓'],
+        bears: ['🧸', '🐻']
     },
 
-    // Questions and answers
-    // Customize each question and its possible responses
     questions: {
         first: {
-            text: "Do you like me?",                                    // First interaction
-            yesBtn: "Yes",                                             // Text for "Yes" button
-            noBtn: "Hell Nah!",                                               // Text for "No" button
-            secretAnswer: "I don't like you, I LOVE YOU!!! ❤️"           // Secret hover message
+            text: "Do you like me?",
+            yesBtn: "Yes",
+            noBtn: "Hell Nah!",
+            secretAnswer: "I don't like you, I LOVE YOU!!! ❤️"
         },
         second: {
-            text: "How much do you love me?",                          // For the love meter
-            startText: "This much!",                                   // Text before the percentage
-            nextBtn: "Next ❤️"                                         // Text for the next button
+            text: "How much do you love me?",
+            startText: "This much!",
+            nextBtn: "Next ❤️"
         },
         third: {
-            text: "Will you be my Valentine on the day after Valentine's Day because I work on Valentine's Day - February 15th, 2026? 🌹", // The big question!
-            yesBtn: "Yes!",                                             // Text for "Yes" button
-            noBtn: "Nooooo..."                                                 // Text for "No" button
+            text: "Will you be my Valentine on February 15th, 2026? 🌹",
+            yesBtn: "Yes!",
+            noBtn: "Nooooo..."
         }
     },
 
-    // Love meter messages
-    // They show up depending on how far they slide the meter
     loveMessages: {
-        extreme: "Dammmnnnn!!! That Much !!?? 🥰🚀💝",  // Shows when they go past 5000%
-        high: "To infinity and Beyonddd! 🚀💝",              // Shows when they go past 1000%
-        normal: "And BEYOND! 🥰"                           // Shows when they go past 100%
+        extreme: "Dammmnnnn!!! That Much !!?? 🥰🚀💝",
+        high: "To infinity and Beyonddd! 🚀💝",
+        normal: "And BEYOND! 🥰"
     },
 
-    // Messages that appear after they say "Yes!"
     celebration: {
-        title: "Yayyy! I'm the luckiest guy in the worlddd! I don't deserve you... 🎉💝💖💝💓",
-        message: "🚀🚀🚀HAPPY VALENTINE's DAY TO MY BABYGIRL, Hope you will love my surprise on Sunday.🚀🚀🚀",
-        emojis: "🎁💖🤗💝💋❤️💕"  // These will bounce around
+        title: "Yayyy! I'm the luckiest guy in the worlddd! 💖",
+        message: "HAPPY VALENTINE'S DAY TO MY BABYGIRL 🚀",
+        emojis: "🎁💖🤗💝💋❤️💕"
     },
 
-    // Color scheme for the website
-    // Use https://colorhunt.co or https://coolors.co to find beautiful color combinations
+    // 💘 PREMIUM ROMANTIC THEME
     colors: {
-        backgroundStart: "#ffafbd",      // Gradient start (try pastel colors for a soft look)
-        backgroundEnd: "#ffc3a0",        // Gradient end (should complement backgroundStart)
-        buttonBackground: "#ff6b6b",     // Button color (should stand out against the background)
-        buttonHover: "#ff8787",          // Button hover color (slightly lighter than buttonBackground)
-        textColor: "#ff4757"             // Text color (make sure it's readable!)
+        backgroundStart: "#ff4e8a",
+        backgroundEnd: "#ff9a9e",
+        buttonBackground: "#d63384",
+        buttonHover: "#e649a1",
+        textColor: "#b3125d"
     },
 
-    // Animation settings
-    // Adjust these if you want faster/slower animations
     animations: {
-        floatDuration: "15s",           // How long it takes hearts to float up (10-20s recommended)
-        floatDistance: "50px",          // How far hearts move sideways (30-70px recommended)
-        bounceSpeed: "0.5s",            // Speed of bouncing animations (0.3-0.7s recommended)
-        heartExplosionSize: 1.5         // Size of heart explosion effect (1.2-2.0 recommended)
+        floatDuration: "15s",
+        floatDistance: "60px",
+        bounceSpeed: "0.5s",
+        heartExplosionSize: 1.8
     },
 
-    //Music Settings
     music: {
         enabled: true,
-        autoplay: true,
-        musicUrl: "https://res.cloudinary.com/dwtshskdx/video/upload/v1771042822/die-with-a-smile-official-music-video_erqzgz.mp3",
+        autoplay: false, // safer for browsers
+        musicUrl: "https://res.cloudinary.com/dwtshskdx/video/upload/v1771042822/die-with-a-smile-official-music-videoerqzgz.mp3",
         startText: "🎵 Play Music",
-        stioText: "🔇 Stop Music",
-        volume: 1
+        stopText: "🔇 Stop Music",
+        volume: 0.7
     }
 };
 
-// Don't modify anything below this line unless you know what you're doing
-window.VALENTINE_CONFIG = CONFIG; 
+window.VALENTINECONFIG = CONFIG;
