@@ -2,57 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Our Special Space ❤️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentineee? 💝</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements"></div>
 
-    <!-- Floating Hearts Background -->
-    <div class="hearts-container"></div>
-
-    <!-- Background Music -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="die-with-a-smile-official-music-video.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Navigation -->
-    <nav>
-        <h2 class="logo">❤️ Our World</h2>
-        <div class="nav-links">
-            <button onclick="showSection('home')">Home</button>
-            <button onclick="showSection('letter')">Letter</button>
-            <button onclick="showSection('playlist')">Playlist</button>
+    <!-- Main Content Container -->
+    <div class="container">
+        <h1 id="valentineTitle"></h1>
+        
+        <!-- First Question -->
+        <div class="question-section" id="question1">
+            <h2 id="question1Text"></h2>
+            <button class="cute-btn" onclick="moveButton(this)" id="yesBtn1"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
+            <div class="secret-answer">
+                <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
+            </div>
         </div>
-    </nav>
 
-    <!-- Sections -->
-
-    <section id="home" class="section active">
-        <h1>Welcome My Love 💕</h1>
-        <p>This space is made just for you.</p>
-        <button class="primary-btn" onclick="revealMessage()">Click Me</button>
-        <p id="hiddenMessage" class="hidden">You are my forever person 💖</p>
-    </section>
-
-    <section id="letter" class="section">
-        <h1>A Letter For You 💌</h1>
-        <p class="letter-text">
-            From the moment we met, everything changed.
-            Every smile, every laugh, every second with you
-            is something I cherish deeply.
-            You are my happiness, my peace, and my greatest blessing.
-        </p>
-    </section>
-
-    <section id="playlist" class="section">
-        <h1>Our Songs 🎵</h1>
-
-        <div class="music-controls">
-            <button id="enableMusic">Enable Music</button>
-            <button id="toggleSong">Switch Song</button>
-            <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+        <!-- Second Question (Love Meter) -->
+        <div class="question-section hidden" id="question2">
+            <h2 id="question2Text"></h2>
+            <div class="love-meter">
+                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                <p>
+                    <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
+                    <span id="extraLove" class="hidden"></span>
+                </p>
+            </div>
+            <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
         </div>
-    </section>
 
-    <script src="config.js"></scri
+        <!-- Final Question -->
+        <div class="question-section hidden" id="question3">
+            <h2 id="question3Text"></h2>
+            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
+        </div>
+
+        <!-- Celebration Message -->
+        <div class="celebration hidden" id="celebration">
+            <h2 id="celebrationTitle"></h2>
+            <p class="celebration-text" id="celebrationMessage"></p>
+            <p class="celebration-text" id="celebrationEmojis"></p>
+        </div>
+    </div>
+
+    <!-- Music Player (Hidden but controlled via JS) -->
+    <div id="musicControls" style="display:none;">
+        <button id="musicToggle"></button>
+        <audio id="bgMusic" loop>
+            <source id="musicSource" src="" type="audio/mp3">
+        </audio>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
