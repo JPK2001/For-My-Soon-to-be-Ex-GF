@@ -1,69 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will You Be My Valentine? 💝</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Special Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="floating-elements"></div>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="die-with-a-smile-official-music-video.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="container">
-    <h1 id="valentineTitle"></h1>
-
-    <div class="question-section" id="question1">
-        <h2 id="question1Text"></h2>
-        <button class="cute-btn" onclick="showNextQuestion(2)" id="yesBtn1"></button>
-        <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
-
-        <div class="secret-answer">
-            <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
-        </div>
+    <!-- Music Control -->
+    <div class="music-controls">
+        <button id="enableMusic">🔊 Click to Enable Music</button>
+        <button id="toggleSong">🎵 Switch Song</button>
     </div>
 
-    <div class="question-section hidden" id="question2">
-        <h2 id="question2Text"></h2>
-        <div class="love-meter">
-            <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
-            <p>
-                <span id="startText"></span>
-                (<span id="loveValue">100</span>%)
-            </p>
-            <span id="extraLove" class="hidden"></span>
-        </div>
-        <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title">A Special Surprise For You ❤️</h1>
+
+        <p class="message">
+            Every moment with you feels magical.  
+            This little project is just to remind you how special you are.
+        </p>
+
+        <button class="love-button" onclick="showMessage()">Click Me 💖</button>
+
+        <p id="hiddenMessage" class="hidden">
+            You are my favorite person in the world. 💕
+        </p>
     </div>
 
-    <div class="question-section hidden" id="question3">
-        <h2 id="question3Text"></h2>
-        <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
-        <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
-    </div>
-
-    <div class="celebration hidden" id="celebration">
-        <h2 id="celebrationTitle"></h2>
-        <p class="celebration-text" id="celebrationMessage"></p>
-        <p class="celebration-text" id="celebrationEmojis"></p>
-    </div>
-</div>
-
-<!-- 🎵 MUSIC PLAYER -->
-<div id="musicControls">
-    <button id="musicToggle" class="cute-btn"></button>
-</div>
-
-<audio id="bgMusic" loop>
-    <source id="musicSource" src="" type="audio/mpeg">
-</audio>
-
-<script src="config.js"></script>
-<script src="theme.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>    
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
