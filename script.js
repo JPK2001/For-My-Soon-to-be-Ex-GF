@@ -3,8 +3,7 @@ document.title = config.pageTitle;
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    document.getElementById('valentineTitle').textContent =
-        `${config.valentineName}, my love...`;
+    animateTitle();
 
     document.getElementById('question1Text').textContent =
         config.questions.first.text;
@@ -30,9 +29,21 @@ window.addEventListener('DOMContentLoaded', () => {
         config.questions.third.noBtn;
 
     createFloatingElements();
-    setupMusicPlayer();
     setupLoveMeter();
+    setupMusicPlayer();
+    setupHeartCursor();
 });
+
+function animateTitle() {
+    const title = document.getElementById('valentineTitle');
+    const text = `${config.valentineName}, my love...`;
+    let i = 0;
+    const interval = setInterval(() => {
+        title.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+    }, 80);
+}
 
 function createFloatingElements() {
     const container = document.querySelector('.floating-elements');
@@ -52,9 +63,14 @@ function createFloatingElements() {
 
 function showNextQuestion(n) {
     document.querySelectorAll('.question-section')
-        .forEach(q => q.classList.add('hidden'));
-    document.getElementById(`question${n}`)
-        .classList.remove('hidden');
+        .forEach(q => {
+            q.classList.add('hidden');
+            q.classList.remove('fade-in');
+        });
+
+    const next = document.getElementById(`question${n}`);
+    next.classList.remove('hidden');
+    next.classList.add('fade-in');
 }
 
 function moveButton(btn) {
@@ -96,6 +112,7 @@ function celebrate() {
 
     const c = document.getElementById('celebration');
     c.classList.remove('hidden');
+    c.classList.add('fade-in');
 
     document.getElementById('celebrationTitle')
         .textContent = config.celebration.title;
@@ -103,6 +120,16 @@ function celebrate() {
         .textContent = config.celebration.message;
     document.getElementById('celebrationEmojis')
         .textContent = config.celebration.emojis;
+
+    launchConfetti();
+}
+
+function launchConfetti() {
+    confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.6 }
+    });
 }
 
 function setupMusicPlayer() {
@@ -125,5 +152,18 @@ function setupMusicPlayer() {
             music.pause();
             toggle.textContent = config.music.startText;
         }
+    });
+}
+
+function setupHeartCursor() {
+    document.addEventListener('mousemove', e => {
+        const heart = document.createElement('div');
+        heart.className = 'cursor-heart';
+        heart.innerHTML = '💖';
+        heart.style.left = e.pageX + 'px';
+        heart.style.top = e.pageY + 'px';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 800);
     });
 }
