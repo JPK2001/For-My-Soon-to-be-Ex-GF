@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentineee? 💝</title>
-    <!-- Google Fonts -->
+    <title>Will You Be My Valentine? 💝</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Floating Background Elements -->
+    <!-- Floating Background -->
     <div class="floating-elements"></div>
 
-    <!-- Main Content Container -->
+    <!-- Main Container -->
     <div class="container">
         <h1 id="valentineTitle"></h1>
-        
+
         <!-- First Question -->
         <div class="question-section" id="question1">
             <h2 id="question1Text"></h2>
@@ -40,27 +42,26 @@
             <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
         </div>
 
-        <!-- Final Question -->
+        <!-- Third Question -->
         <div class="question-section hidden" id="question3">
             <h2 id="question3Text"></h2>
             <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
             <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
         </div>
 
-        <!-- Celebration Message -->
+        <!-- Celebration -->
         <div class="celebration hidden" id="celebration">
             <h2 id="celebrationTitle"></h2>
             <p class="celebration-text" id="celebrationMessage"></p>
             <p class="celebration-text" id="celebrationEmojis"></p>
         </div>
-    </div>
 
-    <!-- Music Player (Hidden but controlled via JS) -->
-    <div id="musicControls" style="display:none;">
-        <button id="musicToggle"></button>
-        <audio id="bgMusic" loop>
-            <source id="musicSource" src="" type="audio/mp3">
-        </audio>
+        <!-- Music Controls -->
+        <div id="musicControls">
+            <button id="musicToggle" class="cute-btn">🎵 Play Music</button>
+            <button id="musicNext" class="cute-btn">⏭ Next Track</button>
+        </div>
+        <audio id="bgMusic" preload="auto"></audio>
     </div>
 
     <!-- Scripts -->
