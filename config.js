@@ -5,7 +5,7 @@
 const CONFIG = {
     // Your Valentine's name that will appear in the title
     // Example: "Jade", "Sarah", "Mike"
-    valentineName: "DEBORAH",
+    valentineName: "DEBORAH A.K.A From Scratch",
 
     // The title that appears in the browser tab
     // You can use emojis! 💝 💖 💗 💓 💞 💕
@@ -71,7 +71,17 @@ const CONFIG = {
         floatDistance: "50px",          // How far hearts move sideways (30-70px recommended)
         bounceSpeed: "0.5s",            // Speed of bouncing animations (0.3-0.7s recommended)
         heartExplosionSize: 1.5         // Size of heart explosion effect (1.2-2.0 recommended)
-    }
+    },
+
+    // Music Settings
+    music: {
+        enabled: true, // Music feature is enabled
+        autoplay: true, // Try to autoplay (note: some browsers may block this)
+        musicUrl: "YOUR_CLOUDINARY_URL_HERE", // Paste your music URL here
+        startText: "🎵 Play Music", // Button text to start music
+        stopText: "🔇 Stop Music", // Button text to stop music
+        volume: 0.5 // Volume level (0.0 to 1.0)
+    }    
 
 
 };
