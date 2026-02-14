@@ -1,120 +1,60 @@
-:root {
-    --background-color-1: #ff4e8a;
-    --background-color-2: #ff9a9e;
-    --button-color: #d63384;
-    --button-hover: #e649a1;
-    --text-color: #b3125d;
-}
-
 body {
     margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg,
-        var(--background-color-1),
-        var(--background-color-2));
-    font-family: 'Poppins', sans-serif;
-    overflow: hidden;
-    animation: backgroundPulse 6s infinite alternate;
-}
-
-@keyframes backgroundPulse {
-    from { filter: brightness(1); }
-    to { filter: brightness(1.1); }
+    padding: 0;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
 }
 
 .container {
-    background: rgba(255,255,255,0.95);
-    padding: 2rem;
-    border-radius: 25px;
-    text-align: center;
-    max-width: 600px;
-    box-shadow: 0 0 40px rgba(255, 0, 102, 0.3);
+    margin-top: 100px;
 }
 
-h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    color: var(--text-color);
+.title {
+    font-size: 3em;
 }
 
-.cute-btn {
-    background: var(--button-color);
+.message {
+    font-size: 1.3em;
+    margin: 20px;
+}
+
+.love-button {
+    background-color: white;
+    color: #ff4b5c;
     border: none;
-    padding: 12px 22px;
-    margin: 10px;
-    border-radius: 30px;
-    color: white;
-    font-size: 1.1rem;
+    padding: 15px 30px;
+    font-size: 1.2em;
     cursor: pointer;
+    border-radius: 30px;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
 }
 
-.cute-btn:hover {
-    transform: scale(1.1);
-    background: var(--button-hover);
-    box-shadow: 0 0 25px rgba(255, 0, 102, 0.7);
+.love-button:hover {
+    background-color: #ff4b5c;
+    color: white;
 }
 
-.hidden { display: none; }
-
-.fade-in {
-    animation: fadeIn 0.6s ease forwards;
+.hidden {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.5em;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.floating-elements {
+.music-controls {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+    top: 10px;
+    right: 10px;
 }
 
-.heart {
-    position: absolute;
-    font-size: 2rem;
-    animation: float 15s linear infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(100vh); }
-    100% { transform: translateY(-100px); }
-}
-
-.slider { width: 100%; }
-
-.celebration-text {
-    font-size: 2rem;
-    color: var(--text-color);
-    animation: bounce 0.6s infinite alternate;
-}
-
-@keyframes bounce {
-    from { transform: scale(1); }
-    to { transform: scale(1.15); }
-}
-
-.cursor-heart {
-    position: absolute;
-    pointer-events: none;
-    font-size: 1.2rem;
-    animation: floatUp 0.8s forwards;
-}
-
-@keyframes floatUp {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-20px); }
-}
-
-#musicControls {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
+.music-controls button {
+    background: white;
+    color: #ff4b5c;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
 }
