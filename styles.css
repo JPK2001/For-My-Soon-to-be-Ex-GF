@@ -4,10 +4,6 @@
     --button-color: #d63384;
     --button-hover: #e649a1;
     --text-color: #b3125d;
-    --float-duration: 15s;
-    --float-distance: 60px;
-    --bounce-speed: 0.5s;
-    --heart-explosion-size: 1.8;
 }
 
 body {
@@ -21,6 +17,12 @@ body {
         var(--background-color-2));
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+    animation: backgroundPulse 6s infinite alternate;
+}
+
+@keyframes backgroundPulse {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.1); }
 }
 
 .container {
@@ -29,6 +31,7 @@ body {
     border-radius: 25px;
     text-align: center;
     max-width: 600px;
+    box-shadow: 0 0 40px rgba(255, 0, 102, 0.3);
 }
 
 h1 {
@@ -47,14 +50,25 @@ h1 {
     font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
 }
 
 .cute-btn:hover {
     transform: scale(1.1);
     background: var(--button-hover);
+    box-shadow: 0 0 25px rgba(255, 0, 102, 0.7);
 }
 
 .hidden { display: none; }
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 .floating-elements {
     position: fixed;
@@ -66,15 +80,12 @@ h1 {
 .heart {
     position: absolute;
     font-size: 2rem;
-    animation: float var(--float-duration) linear infinite;
+    animation: float 15s linear infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(100vh); }
-    100% {
-        transform: translateY(-100px)
-            translateX(var(--float-distance));
-    }
+    100% { transform: translateY(-100px); }
 }
 
 .slider { width: 100%; }
@@ -82,12 +93,24 @@ h1 {
 .celebration-text {
     font-size: 2rem;
     color: var(--text-color);
-    animation: bounce var(--bounce-speed) infinite alternate;
+    animation: bounce 0.6s infinite alternate;
 }
 
 @keyframes bounce {
     from { transform: scale(1); }
     to { transform: scale(1.15); }
+}
+
+.cursor-heart {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.2rem;
+    animation: floatUp 0.8s forwards;
+}
+
+@keyframes floatUp {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
 }
 
 #musicControls {
