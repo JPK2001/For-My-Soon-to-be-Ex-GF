@@ -2,38 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Surprise ❤️</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
     <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="die-with-a-smile-official-music-video.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Music Control -->
+    <!-- Music Controls -->
     <div class="music-controls">
-        <button id="enableMusic">🔊 Click to Enable Music</button>
+        <button id="enableMusic">🔊 Enable Music</button>
         <button id="toggleSong">🎵 Switch Song</button>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <h1 class="title">A Special Surprise For You ❤️</h1>
 
         <p class="message">
-            Every moment with you feels magical.  
+            Every moment with you feels magical.
             This little project is just to remind you how special you are.
         </p>
 
-        <button class="love-button" onclick="showMessage()">Click Me 💖</button>
+        <button class="love-button" id="loveBtn">Click Me 💖</button>
 
         <p id="hiddenMessage" class="hidden">
-            You are my favorite person in the world. 💕
+            You are my favorite person in the world 💕
         </p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- JS LINK -->
+    <script src="./script.js"></script>
 </body>
 </html>
