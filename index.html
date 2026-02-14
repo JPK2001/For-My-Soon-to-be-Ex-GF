@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Our Special Space ❤️</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Surprise ❤️</title>
 
-    <!-- CSS LINK -->
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -15,28 +14,46 @@
         <source src="die-with-a-smile-official-music-video.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Music Controls -->
-    <div class="music-controls">
-        <button id="enableMusic">🔊 Enable Music</button>
-        <button id="toggleSong">🎵 Switch Song</button>
-    </div>
+    <!-- Navigation -->
+    <nav>
+        <h2 class="logo">❤️ Our World</h2>
+        <div class="nav-links">
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('letter')">Letter</button>
+            <button onclick="showSection('playlist')">Playlist</button>
+        </div>
+    </nav>
 
-    <div class="container">
-        <h1 class="title">A Special Surprise For You ❤️</h1>
+    <!-- Sections -->
 
-        <p class="message">
-            Every moment with you feels magical.
-            This little page is just to remind you how special you are.
+    <section id="home" class="section active">
+        <h1>Welcome My Love 💕</h1>
+        <p>This space is made just for you.</p>
+        <button class="primary-btn" onclick="revealMessage()">Click Me</button>
+        <p id="hiddenMessage" class="hidden">You are my forever person 💖</p>
+    </section>
+
+    <section id="letter" class="section">
+        <h1>A Letter For You 💌</h1>
+        <p class="letter-text">
+            From the moment we met, everything changed.
+            Every smile, every laugh, every second with you
+            is something I cherish deeply.
         </p>
+    </section>
 
-        <button class="love-button" id="loveBtn">Click Me 💖</button>
+    <section id="playlist" class="section">
+        <h1>Our Songs 🎵</h1>
 
-        <p id="hiddenMessage" class="hidden">
-            You are my favorite person in the world 💕
-        </p>
-    </div>
+        <div class="music-controls">
+            <button id="enableMusic">Enable Music</button>
+            <button id="toggleSong">Switch Song</button>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.01">
+        </div>
+    </section>
 
-    <!-- JS LINK -->
-    <script src="./script.js"></script>
+    <script src="config.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
